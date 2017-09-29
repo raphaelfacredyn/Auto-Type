@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Auto Type</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.min.css">
+  <script src="jquery-2.2.4.min.js"></script>
+  <script src="bootstrap-tooltip.js"></script>
+  <script src="popup.js"></script>
+  <style>
+    input {
+      text-align: center;
+    }
+
+    .panel {
+      border-radius: 0px 0px 5px 5px;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .panel-heading {
+      border-radius: 5px 5px 0px 0px;
+    }
+  </style>
+</head>
+
+<body style="padding: 0px 10px 10px 10px; text-align:center; min-width:200px;">
+  <h3>Auto Type</h3>
+  <p class="lead">By: Raphael Facredyn</p>
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 data-toggle="tooltip" title="Accuracy isn't exact, there is some randomness to it" class="panel-title">Accuracy</h3>
+    </div>
+    <div class="panel-body">
+      <div class="input-group">
+        <input type="number" id="accuracy" value="100" min="1" max="100" class="form-control"></input>
+        <span class="input-group-addon">%</span>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-success">
+    <div class="panel-heading" style="margin-top: 10px">
+      <h3 class="panel-title">Speed</h3>
+    </div>
+    <div class="panel-body">
+      <div class="input-group">
+        <input type="number" id="speed" value="100" min="1" max="100" class="form-control"></input>
+        <span class="input-group-addon">%</span>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
