@@ -17,5 +17,6 @@
   ],
   "icons": {
     "512": "icon.png"
-  }
+  },
+  "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 }
