@@ -8,10 +8,9 @@ $(document).ready(function() {
     speed = 100 - parseInt(data.split(',')[1]) + 1
   });
 
-  console.log("page load")
   var enter = jQuery.Event("keypress");
   enter.which = 13;
-  $("a:contains('Continue »')" ).trigger("click")
+  $("a:contains('Continue »')").trigger("click")
   setTimeout(function() {
     var letterIndex;
     var interval;
@@ -35,7 +34,6 @@ $(document).ready(function() {
         if (letterIndex <= 0) {
           setTimeout(function() {
             $(document).trigger(enter);
-            console.log("next")
           }, 1000)
           clearInterval(interval);
         }
@@ -61,13 +59,12 @@ $(document).ready(function() {
         if (letterIndex >= $(".letter").length) {
           setTimeout(function() {
             $(document).trigger(enter);
-            console.log("next")
           }, 1000)
           clearInterval(interval);
         }
         letterIndex++;
       }, speed * 10);
     }
-    window.location.href=$("a:contains('Continue To:')" ).get(0).href
+    window.location.href = $("a:contains('Continue To:')").get(0).href
   }, 1000);
 });
