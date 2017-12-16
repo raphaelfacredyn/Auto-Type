@@ -5,29 +5,26 @@ s.onload = function() {
 };
 (document.head || document.documentElement).appendChild(s);
 
+var dataPrev = undefined;
+
+var runningPrev = undefined;
+
 setInterval(function() {
-  var a, s;
-  var dataPrev = {
-    accuracy: undefined,
-    speed: undefined,
-    running: undefined
-  };
   chrome.storage.sync.get('accuracy', function(result) {
-    a = result.accuracy;
+    var a = result.accuracy;
     chrome.storage.sync.get('speed', function(result) {
-      s = result.speed;
+      var s = result.speed;
       var data = {
         accuracy: a,
         speed: s
       };
 
-      if (data.speed !== dataPrev.speed || data.accuracy !== dataPrev.accuracy) {
+      if (JSON.stringify(dataPrev) !== JSON.stringify(data)) {
         // updated: this works with Chrome 30:
         var evt = document.createEvent("CustomEvent");
         evt.initCustomEvent("updateSettings", true, true, data);
         document.dispatchEvent(evt);
-        dataPrev.speed = data.speed
-        dataPrev.accuracy = data.accuracy
+        dataPrev = JSON.parse(JSON.stringify(data))
       }
     });
   });
@@ -35,12 +32,12 @@ setInterval(function() {
   chrome.storage.sync.get('running', function(result) {
     var running = result.running;
 
-    if (dataPrev.running !== running) {
+    if (runningPrev !== running) {
       // updated: this works with Chrome 30:
       var evt = document.createEvent("CustomEvent");
       evt.initCustomEvent("updateState", true, true, running);
       document.dispatchEvent(evt);
-      dataPrev.running = running
+      runningPrev = running
     }
   });
 }, 100);
