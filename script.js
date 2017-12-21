@@ -43,17 +43,11 @@ $(document).ready(function() {
     screenDrop = true;
   }
 
-  var letterList;
-  if (screenDrop) {
-    letterList = getLetterList($('.key-letter')).reverse(); // Letters are backwards in screen drop
-  } else {
-    letterList = getLetterList($('.letter'));
-  }
+  var letterList = [];
 
   var canErr = true; // Don't get 2 wrong in a row
 
   var startInterval = function() {
-    console.log("start")
     return setInterval(function() {
       if (letterIndex < letterList.length) {
         var e = jQuery.Event("keypress");
@@ -87,11 +81,15 @@ $(document).ready(function() {
   }
 
   var stopInterval = function() {
-    console.log("stop")
     clearInterval(interval);
   }
 
   setTimeout(function() {
+    if (screenDrop) {
+      letterList = getLetterList($('.key-letter')).reverse(); // Letters are backwards in screen drop
+    } else {
+      letterList = getLetterList($('.letter'));
+    }
     stopInterval();
     interval = startInterval();
   }, 1000);
