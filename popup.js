@@ -1,7 +1,7 @@
-var maxAccuracy = 100
-var minAccuracy = 50
-var maxSpeed = 1000
-var minSpeed = 1
+var maxAccuracy = 100;
+var minAccuracy = 50;
+var maxSpeed = 1000;
+var minSpeed = 1;
 
 $(document).ready(function() {
   $('[data-toggle="tooltip"]').tooltip();
@@ -22,14 +22,14 @@ $(document).ready(function() {
   });
 
   $("#accuracy").bind("propertychange change click keyup input paste", function(event) {
-    validate($("#accuracy"), minAccuracy, maxAccuracy)
+    validate($("#accuracy"), minAccuracy, maxAccuracy);
     chrome.storage.sync.set({
       'accuracy': $("#accuracy").val()
     }, function() {});
   });
 
   $("#speed").bind("propertychange change click keyup input paste", function(event) {
-    validate($("#speed"), minSpeed, maxSpeed)
+    validate($("#speed"), minSpeed, maxSpeed);
     chrome.storage.sync.set({
       'speed': $("#speed").val()
     }, function() {});

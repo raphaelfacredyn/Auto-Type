@@ -2,63 +2,67 @@
 <html>
 
 <head>
-  <title>Auto Type</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.min.css">
-  <script src="jquery-2.2.4.min.js"></script>
-  <script src="bootstrap-tooltip.js"></script>
-  <script src="popup.js"></script>
-  <style>
-    input {
-      text-align: center;
-    }
+    <title>Auto Type</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/3/paper/bootstrap.min.css">
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="bootstrap-tooltip.js"></script>
+    <script src="popup.js"></script>
+    <style>
+        input {
+            text-align: center;
+        }
 
-    .panel {
-      border-radius: 0px 0px 5px 5px;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
+        .panel {
+            border-radius: 0 0 5px 5px;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
 
-    .panel-heading {
-      border-radius: 5px 5px 0px 0px;
-    }
+        .panel-heading {
+            border-radius: 5px 5px 0 0;
+        }
 
-    .panel-body {
-      margin-bottom: 10px;
-    }
+        .panel-body {
+            margin-bottom: 10px;
+        }
 
-    .tooltip-inner {
-      line-height: 100%
-    }
-  </style>
+        .tooltip-inner {
+            line-height: 100%
+        }
+    </style>
 </head>
 
-<body style="padding: 0px 10px 10px 10px; text-align:center; min-width:200px;">
-  <h3>Auto Type</h3>
-  <div class="panel panel-success">
+<body style="padding: 0 10px 10px 10px; text-align:center; min-width:200px;">
+<h3>Auto Type</h3>
+<div class="panel panel-info">
     <div class="panel-heading">
-      <h3 data-toggle="tooltip" title="The rate is limited to 1000 WPM because typing.com cannot handle more without issues." class="panel-title">Speed</h3>
+        <h3 data-toggle="tooltip"
+            title="The rate is limited to 1000 WPM because typing.com cannot handle more without issues."
+            class="panel-title">Speed</h3>
     </div>
     <div class="panel-body">
-      <div class="input-group">
-        <input type="number" id="speed" min="1" max="1000" class="form-control"></input>
-        <span class="input-group-addon">WPM</span>
-      </div>
+        <div class="input-group">
+            <input type="number" id="speed" min="1" max="1000" class="form-control"></input>
+            <span class="input-group-addon">WPM</span>
+        </div>
+    </div>
+</div>
+<!--<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 data-toggle="tooltip" title="This feature is not currently working properly, try to avoid it or set the accuracy as close to 100% as possible to avoid issues" class="panel-title">Accuracy</h3>
+  </div>
+  <div class="panel-body">
+    <div class="input-group">
+      <input type="number" id="accuracy" min="50" max="100" class="form-control"></input>
+      <span class="input-group-addon">%</span>
     </div>
   </div>
-  <div class="panel panel-info">
-    <div class="panel-heading">
-      <h3 data-toggle="tooltip" title="This feature is not currently working properly, try to avoid it or set the accuracy as close to 100% as possible to avoid issues" class="panel-title">Accuracy</h3>
-    </div>
-    <div class="panel-body">
-      <div class="input-group">
-        <input type="number" id="accuracy" min="50" max="100" class="form-control"></input>
-        <span class="input-group-addon">%</span>
-      </div>
-    </div>
-  </div>
-  <button id="stop" class="btn btn-danger">Stop</button>
-  <button id="start" class="btn btn-success">Start</button>
+</div>
+-->
+<button id="stop" class="btn btn-danger">Stop</button>
+<button id="start" class="btn btn-success">Start</button>
 </body>
 
 </html>
