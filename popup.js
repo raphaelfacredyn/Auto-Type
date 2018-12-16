@@ -9,15 +9,15 @@ $(document).ready(function () {
         $("#speed").val(speed);
     });
 
-    $("#speed").bind("propertychange change click keyup input paste", function (event) {
-        if (isNull(obj.val())) {
-            obj.val(100)
+    $("#speed").bind("propertychange change click keyup input paste", (event) => {
+        if (isNull($("#speed").val())) {
+            $("#speed").val(100)
         }
-        if (parseInt(obj.val()) > max) {
-            obj.val(100)
+        if (parseInt($("#speed").val()) > 1000) {
+            $("#speed").val(100)
         }
-        if (parseInt(obj.val()) < min) {
-            obj.val(1)
+        if (parseInt($("#speed").val()) < 1) {
+            $("#speed").val(1)
         }
 
         chrome.storage.sync.set({

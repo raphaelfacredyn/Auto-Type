@@ -27,7 +27,9 @@ setInterval(function () {
     });
 
     chrome.storage.sync.get('running', function (result) {
-        var running = result.running || true;
+        var running = result.running;
+        if (running === undefined)
+            running = true;
 
         var evt = document.createEvent("CustomEvent");
         evt.initCustomEvent("updateState", true, true, running);
