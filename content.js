@@ -15,8 +15,8 @@ setInterval(function () {
         chrome.storage.sync.get('speed', function (result) {
             var s = result.speed;
             var data = {
-                accuracy: a,
-                speed: s
+                accuracy: a || 100,
+                speed: s || 100
             };
 
             var evt = document.createEvent("CustomEvent");
@@ -27,7 +27,7 @@ setInterval(function () {
     });
 
     chrome.storage.sync.get('running', function (result) {
-        var running = result.running;
+        var running = result.running || true;
 
         var evt = document.createEvent("CustomEvent");
         evt.initCustomEvent("updateState", true, true, running);
