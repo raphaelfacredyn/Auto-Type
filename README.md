@@ -1,4 +1,4 @@
-# Auto-Type
+# Auto Type
 
 #### Chrome Webstore Description
 > #### Automatically Type On typing.com
