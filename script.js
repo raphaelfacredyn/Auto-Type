@@ -33,6 +33,8 @@ function start() {
         startScreenBasic();
     else if (screenFallingSelector().length > 0)
         startScreenFalling();
+    else if (nitroTypeSelector().length > 0)
+        startNitroType();
 }
 
 function singleLetterSelector() {
@@ -81,6 +83,23 @@ function startScreenFalling() {
     for (var i = 0; i < letterObjects.length; i++)
         letters.push(letterObjects[i].textContent.substring(1, 2));
     typeLetters(letters.reverse())
+}
+
+function nitroTypeSelector() {
+    return $("#race-track")
+}
+
+function startNitroType() {
+    inputBox = $("body");
+    String.prototype._wordwrap = String.prototype.wordwrap;
+    String.prototype.wordwrap = function (number) {
+        if (this !== "Please wait. Typing content will appear before the race begins") {
+            setTimeout(() => {
+                typeLetters(this)
+            }, 4200)
+        }
+        return this._wordwrap(number)
+    }
 }
 
 function typeLetters(letterList) {
