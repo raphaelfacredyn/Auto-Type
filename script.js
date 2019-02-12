@@ -1,3 +1,16 @@
+//Google Analytics
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-79436930-3']);
+
+(function () {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = 'https://ssl.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+
 var inputBox;
 
 $(document).ready(function () {
@@ -47,6 +60,7 @@ function startSingleLetter() {
         pressEnter();
         setTimeout(start, 500)
     }, 500)
+    _gaq.push(['trackEvent', 'site', 'single_letter']);
 }
 
 function screenIntroSelector() {
@@ -59,6 +73,7 @@ function startScreenIntro() {
     for (var i = 0; i < letterObjects.length; i++)
         letters.push(letterObjects[i].textContent);
     typeLetters(letters)
+    _gaq.push(['trackEvent', 'site', 'screen_intro']);
 }
 
 function screenBasicSelector() {
@@ -71,6 +86,7 @@ function startScreenBasic() {
     for (var i = 0; i < letterObjects.length; i++)
         letters.push(letterObjects[i].textContent);
     typeLetters(letters)
+    _gaq.push(['trackEvent', 'site', 'screen_basic']);
 }
 
 function screenFallingSelector() {
@@ -83,6 +99,7 @@ function startScreenFalling() {
     for (var i = 0; i < letterObjects.length; i++)
         letters.push(letterObjects[i].textContent.substring(1, 2));
     typeLetters(letters.reverse())
+    _gaq.push(['trackEvent', 'site', 'screen_falling']);
 }
 
 function nitroTypeSelector() {
@@ -100,6 +117,7 @@ function startNitroType() {
         }
         return this._wordwrap(number)
     }
+    _gaq.push(['trackEvent', 'site', 'nitro_type']);
 }
 
 function typeLetters(letterList) {
@@ -122,6 +140,7 @@ function typeLetters(letterList) {
             stopInterval();
             interval = startInterval();
             running = true;
+            _gaq.push(['trackEvent', 'typing', 'wpm_or_accuracy_change']);
         }
     };
 
@@ -133,10 +152,12 @@ function typeLetters(letterList) {
             if (!running) {
                 stopInterval();
                 running = false;
+                _gaq.push(['trackEvent', 'typing', 'paused']);
             } else {
                 stopInterval();
                 interval = startInterval();
                 running = true;
+                _gaq.push(['trackEvent', 'typing', 'started']);
             }
         }
     };
@@ -170,7 +191,13 @@ function pressEnter() {
     inputBox.trigger(e);
 }
 
+var firstLetter = true;
+
 function typeLetter(letter) {
+    if (firstLetter) {
+        _gaq.push(['trackEvent', 'typing', 'first_letter_typed']);
+        firstLetter = false
+    }
     var e = jQuery.Event("keypress");
     e.key = letter;
     e.which = letter.charCodeAt(0);
